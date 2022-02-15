@@ -10,7 +10,7 @@ public class JeopardyServer {
         this.server = new Tomcat();
         this.server.getConnector();
         this.server.addContext("", null);
-        this.server.addServlet("", "questionServlet", questionService).addMapping("/");
+        this.server.addServlet("", "questionServlet", jeopardyService).addMapping("/");
         try {
             this.server.start();
         } catch (LifecycleException e) {
