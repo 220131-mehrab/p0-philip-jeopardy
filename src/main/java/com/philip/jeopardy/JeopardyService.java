@@ -18,8 +18,16 @@ public class JeopardyService extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        for(String questions : questionRepository.getJeopardyQuestions()) {
-            resp.getWriter().println(questions);
+        String userInput;
+        userInput = req.getParameter("searchName");
+
+        if(userInput != null){
+            String result = questionRepository.getQuestion(userInput);
+            resp.getWriter().println(result);
+        }else {
+            for (String questions : questionRepository.getJeopardyQuestions()) {
+                resp.getWriter().println(questions);
+            }
         }
     }
 }

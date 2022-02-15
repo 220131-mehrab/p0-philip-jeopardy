@@ -8,6 +8,7 @@ public class JeopardyServer {
 
     public JeopardyServer(JeopardyService jeopardyService){
         this.server = new Tomcat();
+        this.server.setBaseDir(System.getProperty("java.io.tmpdir"));
         this.server.getConnector();
         this.server.addContext("", null);
         this.server.addServlet("", "questionServlet", jeopardyService).addMapping("/");

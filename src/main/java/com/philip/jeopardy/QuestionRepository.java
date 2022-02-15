@@ -28,4 +28,16 @@ public class QuestionRepository {
           public List<String> getJeopardyQuestions(){
             return jeopardyQuestions;
           }
+
+          public String getQuestion(String airDate) {
+                String result = "";
+                for(String questions: this.jeopardyQuestions){
+                    if(questions.contains(airDate)){
+                        result = questions;
+                    }
+                }
+
+                return result;
+
+          }
 }
